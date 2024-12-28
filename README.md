@@ -1,8 +1,8 @@
-### choropleth-map-england-and-wales
+# Drawing Choropleth Map for Regions in England And Wales
 
-#### Introduction
+### Introduction
 
-In this Shiny page, you can download shapefiles for each region in England and Wales.
+In this Shiny page, you can download shapefiles for each region (in terms of local authorities) in England and Wales.
 
 ![](thumbnail.png)
 
@@ -35,7 +35,7 @@ leaflet(sf) %>%
               label = sf$LAD24NM)
 ```
 
-#### Remarks
+### Remarks
 
 This Shiny page, which uses relevant materials of digital boundary products supplied under the Open Government Licence, provide the following copyright statements:
 
