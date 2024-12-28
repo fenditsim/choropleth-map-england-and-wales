@@ -1,35 +1,22 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
+### choropleth-map-england-and-wales
 
-# choropleth-map-england-and-wales
+#### Introduction
 
-## Introduction
+In this Shiny page, you can download shapefiles for each region in England and Wales.
 
-In this Shiny page, you can download shapefiles for each region in
-England and Wales.
+![](thumbnail.png)
 
-![](thumbnail.png)Shapefile data (May 2024) and Local Authority District
-to Region (December 2023) were downloaded from data.gov.uk.
+Shapefile data (May 2024) and Local Authority District to Region (December 2023) were downloaded from data.gov.uk.
 
-Head over to Map tab, select a region in England and Wales (e.g.,
-London) and download the corresponding shapefiles (as .zip file)!
+Head over to Map tab, select a region in England and Wales (e.g., London) and download the corresponding shapefiles (as .zip file)!
 
-Also, you can hover/click on each polygon (with the name of
-corresponding Local Authority) in the choropleth map.
+Also, you can hover/click on each polygon (with the name of corresponding Local Authority) in the choropleth map.
 
-Inside the zip file, there are four files with extensions (.shp, .shx,
-.dbf and .prj).
+Inside the zip file, there are four files with extensions (.shp, .shx, .dbf and .prj).
 
-Store all these files in a directory and create corresponding choropleth
-map with [sf](https://r-spatial.github.io/sf/) and
-[leaflet](https://rstudio.github.io/leaflet/articles/leaflet.html)
-packages in R.
+Store all these files in a directory and create corresponding choropleth map with [sf](https://r-spatial.github.io/sf/) and [leaflet](https://rstudio.github.io/leaflet/articles/leaflet.html) packages in R.
 
-Have a look at the following example code of creating a choropleth map
-with shapefiles of London (shapefile_London.shp):
+Have a look at the following example code of creating a choropleth map with shapefiles of London (shapefile_London.shp):
 
 ``` r
 # Load packages
@@ -48,13 +35,10 @@ leaflet(sf) %>%
               label = sf$LAD24NM)
 ```
 
-## Remarks
+#### Remarks
 
-This Shiny page, which uses relevant materials of digital boundary
-products supplied under the Open Government Licence, provide the
-following copyright statements:
+This Shiny page, which uses relevant materials of digital boundary products supplied under the Open Government Licence, provide the following copyright statements:
 
--   Sources: Office for National Statistics licensed under the Open
-    Government Licence v.3.0
+-   Sources: Office for National Statistics licensed under the Open Government Licence v.3.0
 
 -   Contains OS data © Crown copyright and database right [2024]
