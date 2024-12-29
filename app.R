@@ -2,6 +2,7 @@ library(shiny)
 library(leaflet)
 library(sf)
 library(dplyr)
+library(shinycssloaders)
 
 # Import data
 local.authorities <- read.csv("Local_Authority_District_to_Region_(December_2023)_Lookup_in_England.csv", header = T) %>% select(c(LAD23NM, RGN23NM))  # local authority with its regions
@@ -63,12 +64,20 @@ shinyApp(
                ),
              br(),
              fluidRow(
-               leafletOutput(outputId = "map", height = 800)
+               withSpinner(
+                 leafletOutput(outputId = "map", height = 800)
+                 )
                )
              ),
     # Log tab
     tabPanel(title = "Log",
              h3("Version Log"),
+             h4("0.2.5 - 2024.12.29"),
+             tags$div(
+               tags$ul(
+                 tags$li("Added Spinner on the plot area via ", a(href = "https://github.com/daattali/shinycssloaders", "shinycssloaders"), " package."),
+               )
+             ),
              h4("0.2 - 2024.12.27"),
              tags$div(
                tags$ul(
@@ -113,6 +122,7 @@ shinyApp(
     
     # Create the choropleth map based on generated shapefile
     output$map <- renderLeaflet({
+      Sys.sleep(1)
       leaflet(sf()) %>%
         addPolygons(data=sf()$geometry, color = "purple", fillOpacity = 0.6, smoothFactor = 0.5, label = sf()$LAD24NM)
     })
